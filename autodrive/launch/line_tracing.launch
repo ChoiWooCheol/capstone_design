@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="autodrive" name="autodrive_pub" type="autodrive_pub"/>
+    <node pkg="autodrive" name="autodrive_sub" type="autodrive_sub" output="screen" args="/dev/ttyUSB0"/>
+</launch>

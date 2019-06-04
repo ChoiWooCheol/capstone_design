@@ -1,0 +1,9 @@
+<launch>
+    <!-- lidar. 뒷바퀴 차축의 중심을 기준으로 라이다가 x축으로 1.4 앞에 있음 -->
+
+    <!--node pkg="platform_static_tf" type="move_base_debug" name="move_base_debug"/-->
+
+    <node pkg="tf" type="static_transform_publisher" name="footprint2baselink" args="0 0 0 0 0 0 base_footprint base_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="lidar2baselink" args="1.4 0 0 0 0 0 base_link laser 100" />
+    <node pkg="tf" type="static_transform_publisher" name="camera_main2baselink" args="-0.68 0 0 0 0 0 base_link /camera_main 100" />
+</launch>

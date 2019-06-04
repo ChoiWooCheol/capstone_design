@@ -1,0 +1,37 @@
+ <launch>
+    <!-- test(나중에 지워야 함)-->
+    <node pkg="platform_tf" type="test_pose_pub" name="test"/>
+    
+    <!-- 센서 위치 초기세팅 값-->
+    <param name="tf_main_camera_x"     value="-1"/>
+    <param name="tf_main_camera_y"     value="0"/>
+    <param name="tf_main_camera_yaw"   value="0"/>
+
+    <param name="tf_left_camera_x"     value="3"/>
+    <param name="tf_left_camera_y"     value="-1"/>
+    <param name="tf_left_camera_yaw"   value="-0.8"/>
+    
+    <param name="tf_right_camera_x"    value="3"/>
+    <param name="tf_right_camera_y"    value="1"/>
+    <param name="tf_right_camera_yaw"  value="0.8"/>
+
+    <param name="tf_rear_camera_x"     value="-2"/>
+    <param name="tf_rear_camera_y"     value="0"/>
+    <param name="tf_rear_camera_yaw"   value="3.141592"/>
+
+    <param name="tf_lidar_x"           value="5"/>
+    <param name="tf_lidar_y"           value="0"/>
+    <param name="tf_lidar_yaw"         value="0"/>
+
+
+    <!-- platform_base_frame-->
+    <node pkg="platform_tf"  type="platform_base_frame" name="base_frame" />
+
+    <!-- sensor_frame tf to base_frame-->
+    <node pkg="platform_tf"  type="camera_main_frame"  name="main_camera_frame" />
+    <node pkg="platform_tf"  type="camera_rear_frame"  name="rear_camera_frame" />
+    <node pkg="platform_tf"  type="camera_left_frame"  name="left_camera_frame" />
+    <node pkg="platform_tf"  type="camera_right_frame" name="right_camera_frame" />
+    <node pkg="platform_tf"  type="lidar_frame"        name="lidat_frame" />
+  
+  </launch>

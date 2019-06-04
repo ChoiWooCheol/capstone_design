@@ -1,0 +1,6 @@
+<launch>
+  <param name="use_sim_time" value="false"/>
+  <include file="$(find sensor_launch)/launch/sensor_launch_no_camera.launch"/>
+  <include file="$(find move_base_ssu)/launch/move_base_ssu.launch"/>
+  <include file="$(find platform_static_tf)/launch/robot_setup.launch"/>
+</launch>

@@ -1,0 +1,23 @@
+<launch>
+    <param name="use_sim_time" value="false"/>
+    <include file="$(find sensor_launch)/launch/sensor_launch_no_camera.launch"/>
+    <include file="$(find platform_static_tf)/launch/robot_setup.launch"/>
+    <node pkg="odometry" type="odom_pub" name="odom_wheelbased">
+        <param name="/frame_id" value="odom"/>
+        <param name="/child_frame_id" value="base_footprint"/>        
+        <param name="/initial_x" value="0.0"/>
+        <param name="/initial_y" value="0.0"/>
+        <param name="/initial_heading" value="0.0"/>
+        <param name="/trans_cov" value="0.1"/>
+        <param name="/rot_cov" value="0.005"/>
+        <param name="/tf_publish" value="true"/>
+    </node>
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+        <param name="xmin" value="-100.0"/>
+        <param name="ymin" value="-100.0"/>
+        <param name="xmax" value="100.0"/>
+        <param name="ymax" value="100.0"/>
+        <!--resolution-->
+        <param name="delta" value="0.05"/>
+    </node>
+</launch>
